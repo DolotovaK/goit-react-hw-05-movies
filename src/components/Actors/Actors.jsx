@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getMovieActors } from "services/fetchMovies";
+import { fetchMovieActors } from "services/FetchMovieActors";
+// import { getMovieActors } from "services/fetchMovies";
 
 export default function Actors() {
     const { id } = useParams();
     const [cast, setCast] = useState([]);
     const [error, setError] = useState(null);
 
+    // useEffect(() => {
+    //     getMovieActors(id).then(({ cast }) => setCast(cast)).catch(error => setError(error));
+    // }, [id])
+
     useEffect(() => {
-        getMovieActors(id).then(({ cast }) => setCast(cast)).catch(error => setError(error));
+        fetchMovieActors(id).then(({ cast }) => setCast(cast)).catch(error => setError(error));
     }, [id])
 
     const poster = 'https://image.tmdb.org/t/p/w500';

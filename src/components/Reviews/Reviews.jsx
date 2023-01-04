@@ -1,15 +1,20 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { getMovieReviews } from "services/fetchMovies";
+import { fetchMovieReviews } from "services/fetchMovieReviews";
+// import { getMovieReviews } from "services/fetchMovies";
 
 export default function Reviews() {
     const { id } = useParams();
     const [reviews, setReviews] = useState([]);
     const [error, setError] = useState(null);
 
+    // useEffect(() => {
+    //     getMovieReviews(id).then(({ results }) => setReviews(results)).catch(error => setError(error));
+    // }, [id]);
+
     useEffect(() => {
-        getMovieReviews(id).then(({ results }) => setReviews(results)).catch(error => setError(error));
+        fetchMovieReviews(id).then(({ results }) => setReviews(results)).catch(error => setError(error));
     }, [id]);
 
     return (
