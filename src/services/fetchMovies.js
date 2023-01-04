@@ -29,26 +29,22 @@ export async function getMovieDetails(id) {
   return await response.json();
 }
 
-export function getMovieActors(id) {
-  return fetch(`${BASE_URL}${id}movie/credits?&api_key=${API_KEY}`).then(
-    response => {
-      if (!response.ok) {
-        throw new Error('Fail');
-      }
-
-      return response.json();
-    }
+export async function getMovieActors(id) {
+  const response = await fetch(
+    `${BASE_URL}${id}/movie/credits?&api_key=${API_KEY}`
   );
+  if (!response.ok) {
+    throw new Error('Fail');
+  }
+  return await response.json();
 }
 
-export function getMovieReviews(id) {
-  return fetch(`${BASE_URL}${id}movie/reviews?page=1&&api_key=${API_KEY}`).then(
-    response => {
-      if (!response.ok) {
-        throw new Error('Fail');
-      }
-
-      return response.json();
-    }
+export async function getMovieReviews(id) {
+  const response = await fetch(
+    `${BASE_URL}${id}/movie/reviews?page=1&&api_key=${API_KEY}`
   );
+  if (!response.ok) {
+    throw new Error('Fail');
+  }
+  return await response.json();
 }
