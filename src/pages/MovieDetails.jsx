@@ -21,7 +21,7 @@ export default function MovieDetails() {
     return (
         <main>
             {error && (<p>{error.message}! Please reload the page.</p>)}
-            <BackLink to={backLinkHref}>Back to Movies</BackLink>
+            <BackLink to={backLinkHref}>Go Back</BackLink>
             {!error && (
                 <>
                     <div style={{ display: 'flex', gap: '50px', margin: '16px 0' }}>

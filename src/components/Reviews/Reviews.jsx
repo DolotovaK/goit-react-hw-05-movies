@@ -29,7 +29,7 @@ export default function Reviews() {
                         <p>{content}</p>
                     </li>
                 ))}
-            </ul> : <p>This movie has no reviews</p>}
+            </ul> : <p>We don't have any reviews for this movie</p>}
         </>
     );
 };
